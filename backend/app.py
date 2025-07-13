@@ -6,8 +6,12 @@ import requests
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+# Get full path to .env file
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+
 api_key = os.getenv("OPENROUTER_API_KEY")
+print("LOADED API KEY:", api_key)
 
 HF_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
@@ -15,7 +19,7 @@ HF_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 # Add your free token here (or skip if using public model)
 HF_HEADERS = {
-    "Authorization": "Bearer {api_key}",
+    "Authorization": f"Bearer {api_key}",
     "Content-Type": "application/json"
 }
 
