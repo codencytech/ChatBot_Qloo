@@ -1,0 +1,38 @@
+/* Animate messages with a gentle fade-in */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Common bubble style */
+.message {
+  max-width: 75%;
+  padding: 10px 14px;
+  border-radius: 18px;
+  font-size: 15px;
+  line-height: 1.5;
+  animation: fadeInUp 0.4s ease;
+  word-wrap: break-word;
+}
+
+/* Bot message bubble (left-aligned) */
+.bot {
+  background: linear-gradient(to right, #4f46e5, #9333ea);
+  color: white;
+  align-self: flex-start;
+  border-bottom-left-radius: 0;
+}
+
+/* User message bubble (right-aligned) */
+.user {
+  background: linear-gradient(to right, #10b981, #22d3ee);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
+}
