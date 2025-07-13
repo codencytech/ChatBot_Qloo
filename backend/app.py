@@ -3,6 +3,11 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import requests
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+api_key = os.getenv("OPENROUTER_API_KEY")
 
 HF_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
@@ -10,7 +15,7 @@ HF_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 # Add your free token here (or skip if using public model)
 HF_HEADERS = {
-    "Authorization": "Bearer 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",
+    "Authorization": "Bearer {api_key}",
     "Content-Type": "application/json"
 }
 
